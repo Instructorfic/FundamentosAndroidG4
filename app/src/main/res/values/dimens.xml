@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margen_personalizado">150dp</dimen>
+    <dimen name="et_margen">10dp</dimen>
+    <dimen name="et_margen_icono">15dp</dimen>
+    <dimen name="et_tamanio_texto">15sp</dimen>
+    <dimen name="tamanio_altura_textview">60dp</dimen>
+</resources>
