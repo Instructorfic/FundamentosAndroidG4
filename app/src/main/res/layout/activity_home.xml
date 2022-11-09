@@ -6,13 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/tvMensaje"
+
+    <Button
+        android:id="@+id/btnVisualizarSitioWeb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ha_texto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/color_fic"
+        android:text="@string/btn_home_activity_sitio_web"
+        app:layout_constraintEnd_toStartOf="@+id/btnMarcarNumero"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMarcarNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_fic"
+        android:text="@string/btn_home_activity_marcar_numero"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

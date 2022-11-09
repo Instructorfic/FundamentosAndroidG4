@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    final int MAIN_ACTIVITY_TAG = 1;
     private EditText etNombreUsuario, etContrasenia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public View.OnClickListener accionBotonIniciarSesion = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-             mostrarSitioWeb();
-            //iniciarActividad();
-            //mostrarMensaje(etNombreUsuario.getText().toString());
+            iniciarActividad();
         }
     };
 
