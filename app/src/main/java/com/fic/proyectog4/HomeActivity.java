@@ -7,10 +7,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class HomeActivity extends AppCompatActivity {
 
     Button btnVisualizarSitioWeb, btnMarcarNumero;
+    EditText etSitioWeb, etNumeroTelefono;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,9 @@ public class HomeActivity extends AppCompatActivity {
         btnVisualizarSitioWeb = findViewById(R.id.btnVisualizarSitioWeb);
         btnMarcarNumero = findViewById(R.id.btnMarcarNumero);
 
+        etSitioWeb = findViewById(R.id.etSitioWeb);
+        etNumeroTelefono = findViewById(R.id.etNumeroTelefono);
+
         btnVisualizarSitioWeb.setOnClickListener(accionBotonVisualizar);
         btnMarcarNumero.setOnClickListener(accionBotonMarcar);
     }
@@ -26,14 +31,14 @@ public class HomeActivity extends AppCompatActivity {
     public View.OnClickListener accionBotonVisualizar = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            visualizarSitioWeb("http://fic.uas.edu.mx");
+            visualizarSitioWeb(etSitioWeb.getText().toString());
         }
     };
 
     public View.OnClickListener accionBotonMarcar = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            marcarNumero("6671000000");
+            marcarNumero(etNumeroTelefono.getText().toString());
         }
     };
 
