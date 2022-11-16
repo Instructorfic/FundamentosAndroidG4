@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     public void iniciarActividad(){
         //Intención explícita, muestra la actividad HomeActivity
         Intent intent = new Intent(this,HomeActivity.class);
+        String mensaje = "Práctica de envío de datos";
+        intent.putExtra("mensaje",mensaje);
+        intent.putExtra("nombreUsuario",etNombreUsuario.getText().toString());
+        intent.putExtra("contraseniaUsuario",etContrasenia.getText().toString());
         startActivity(intent);
     }
 

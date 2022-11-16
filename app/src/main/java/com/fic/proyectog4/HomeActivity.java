@@ -5,18 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class HomeActivity extends AppCompatActivity {
-
+    final String HOME_ACTIVITY_TAG = HomeActivity.class.getSimpleName();
     Button btnVisualizarSitioWeb, btnMarcarNumero;
     EditText etSitioWeb, etNumeroTelefono;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent obtenerIntencion = getIntent();
+
+        String mensaje = obtenerIntencion.getStringExtra("mensaje");
+        String nombreUsuario = obtenerIntencion.getStringExtra("nombreUsuario");
+        String contraseniaUsuario = obtenerIntencion.getStringExtra("contraseniaUsuario");
+        Log.i(HOME_ACTIVITY_TAG,mensaje);
+        Log.i(HOME_ACTIVITY_TAG,nombreUsuario);
+        Log.i(HOME_ACTIVITY_TAG,contraseniaUsuario);
 
         btnVisualizarSitioWeb = findViewById(R.id.btnVisualizarSitioWeb);
         btnMarcarNumero = findViewById(R.id.btnMarcarNumero);
@@ -52,5 +63,10 @@ public class HomeActivity extends AppCompatActivity {
         Uri uri = Uri.parse("tel:"+numeroTelefono);
         Intent intencionMarcarNumero = new Intent(Intent.ACTION_DIAL,uri);
         startActivity(intencionMarcarNumero);
+    }
+
+    public void visualizarConfiguracionInalambrica(){
+        Intent intencionVisualizarConfiguracionInalambrica = new Intent(Settings.ACTION_WIFI_SETTINGS);
+        startActivity(intencionVisualizarConfiguracionInalambrica);
     }
 }
