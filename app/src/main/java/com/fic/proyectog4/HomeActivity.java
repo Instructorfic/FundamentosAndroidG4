@@ -20,14 +20,24 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //Obtener datos
         Intent obtenerIntencion = getIntent();
+
 
         String mensaje = obtenerIntencion.getStringExtra("mensaje");
         String nombreUsuario = obtenerIntencion.getStringExtra("nombreUsuario");
         String contraseniaUsuario = obtenerIntencion.getStringExtra("contraseniaUsuario");
+        //Obtener datos enviados mediante extras
         Log.i(HOME_ACTIVITY_TAG,mensaje);
         Log.i(HOME_ACTIVITY_TAG,nombreUsuario);
         Log.i(HOME_ACTIVITY_TAG,contraseniaUsuario);
+        //Obtener un único dato
+        Log.i(HOME_ACTIVITY_TAG, String.valueOf(obtenerIntencion.getData()));
+
+        //Obtener datos enviados mediante un paquete(bundle)
+        Bundle recibeDatosPaquete = obtenerIntencion.getExtras();
+        Log.i(HOME_ACTIVITY_TAG,recibeDatosPaquete.getString("materia"));
+        Log.i(HOME_ACTIVITY_TAG, String.valueOf(recibeDatosPaquete.getDouble("calificacion")));
 
         btnVisualizarSitioWeb = findViewById(R.id.btnVisualizarSitioWeb);
         btnMarcarNumero = findViewById(R.id.btnMarcarNumero);

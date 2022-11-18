@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    final int MAIN_ACTIVITY_TAG = 1;
+    final String MAIN_ACTIVITY_TAG = MainActivity.class.getSimpleName();
     private EditText etNombreUsuario, etContrasenia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,22 @@ public class MainActivity extends AppCompatActivity {
     public void iniciarActividad(){
         //Intención explícita, muestra la actividad HomeActivity
         Intent intent = new Intent(this,HomeActivity.class);
+        //Envío de un sólo dato
+        intent.setData(Uri.parse("https://fic.uas.edu.mx"));
+
+        //Envío de más de un dato mediante extras
         String mensaje = "Práctica de envío de datos";
         intent.putExtra("mensaje",mensaje);
         intent.putExtra("nombreUsuario",etNombreUsuario.getText().toString());
         intent.putExtra("contraseniaUsuario",etContrasenia.getText().toString());
+
+        //Envío de más de un dato utilizando un paquete(bundle)
+        Bundle paqueteDatos = new Bundle();
+        paqueteDatos.putString("materia","Optativa Cómputo Móvil");
+        paqueteDatos.putDouble("calificacion",7.67);
+
+        intent.putExtras(paqueteDatos);
+
         startActivity(intent);
     }
 
