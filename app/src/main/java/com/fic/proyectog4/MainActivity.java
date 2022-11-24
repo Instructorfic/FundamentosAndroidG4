@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,4 +68,35 @@ public class MainActivity extends AppCompatActivity {
         Intent intencionSitioWeb = new Intent(Intent.ACTION_VIEW,urlSitioWeb);
         startActivity(intencionSitioWeb);
     }
+
+    protected void onStart() {
+        super.onStart();
+        Log.i(MAIN_ACTIVITY_TAG,"onStart()-iniciado");
+    }
+
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(MAIN_ACTIVITY_TAG,"onRestart()-Restaurado");
+    }
+
+    protected void onResume() {
+        super.onResume();
+        Log.i(MAIN_ACTIVITY_TAG,"onResume()-Ejecución");
+    }
+
+    protected void onPause() {
+        super.onPause();
+        Log.i(MAIN_ACTIVITY_TAG,"onPause()-Pausado");
+    }
+
+    protected void onStop() {
+        super.onStop();
+        Log.i(MAIN_ACTIVITY_TAG,"onStop()-Detenido");
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(MAIN_ACTIVITY_TAG,"onDestroy()-Destruido");
+    }
+
 }
